@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote of the day</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quote-box">
+        <h2>Quote of the day</h2>
+        <blockquote id ="quote">Loading.....</blockquote>
+        <span id = "author">Loading....</span>
+        <div>
+            <button onclick="getquote(api_url)">New Quote</button>
+            <button onclick="tweet()"> <img src ="data:image/png;base64,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"> Tweet</button>
+        </div>
+    </div>
+    <script>
+        const quote = document.getElementById("quote")
+        const author = document.getElementById("author")
+        const api_url = "https://api.quotable.io/random";
+        async function getquote(url){
+            const response = await fetch(url);
+            var data = await response.json();
+         
+            quote.innerHTML = data.content;
+            author.innerHTML = data.author;
+        }
+        getquote(api_url)
+
+        function tweet(){
+    window.open("https://twitter.com/intent/tweet?text=" + quote.innerHTML + "--- by", "Tweet Window", "width=600,height=300");
+}
+
+    </script>
+    
+</body>
+</html>
